@@ -1,0 +1,20 @@
+# @package _global_
+defaults:
+  - /datamodule: mnist
+  - /litmodule: classify_mnist
+  - override /hydra/launcher: local
+  - _self_
+hydra:
+  launcher:
+    gpus_per_node: 1
+    cpus_per_task: 4
+config:
+  device: gpu
+litmodule:
+  nnmodule:
+    config:
+      dims: [784, 128, 10]
+    activation_fn:
+      _target_: torch.nn.ReLU
+trainer:
+  max_epochs: 3
