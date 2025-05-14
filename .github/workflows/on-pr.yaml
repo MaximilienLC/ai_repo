@@ -72,7 +72,7 @@ jobs:
           -v /dev/shm:/dev/shm -w ${PWD} mleclei/ai_repo:cuda_test
           python projects/classify_mnist/train.py task=mlp
           logger.entity=maximilienlc
-  neuroevorl_control-acrobot:
+  ne_control_score-acrobot:
     needs: docker-build
     runs-on: self-hosted
     steps:
