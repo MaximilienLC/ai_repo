@@ -90,9 +90,9 @@ dependencies = [
 
 [project.optional-dependencies]
 cuda = [
-    "torch==2.7.0+cu128",
-    "torchaudio==2.7.0+cu128",
-    "torchvision==0.22.0+cu128",
+    "torch==2.7.0+cu126",
+    "torchaudio==2.7.0+cu126",
+    "torchvision==0.22.0+cu126",
 ]
 rocm = [
     "torch==2.7.0+rocm6.3",
