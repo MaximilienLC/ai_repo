@@ -1,6 +1,9 @@
 """`Hydra <https://hydra.cc>`_ utilities."""
 
-from hydra._internal.core_plugins.basic_launcher import BasicLauncher
+from hydra._internal.core_plugins.basic_launcher import (
+    BasicLauncher,
+    BasicLauncherConf,
+)
 from hydra.core.hydra_config import HydraConfig
 from hydra_plugins.hydra_submitit_launcher.config import (
     LocalQueueConf,
@@ -15,7 +18,9 @@ from omegaconf import DictConfig, OmegaConf
 from common.utils.misc import get_path
 
 
-def get_launcher_config() -> LocalQueueConf | SlurmQueueConf:
+def get_launcher_config() -> (
+    LocalQueueConf | SlurmQueueConf | BasicLauncherConf
+):
     """Retrieves/validates this job's ``hydra`` launcher config.
 
     Ref: `Hydra <https://hydra.cc>`_.
@@ -45,11 +50,6 @@ def get_launcher_config() -> LocalQueueConf | SlurmQueueConf:
     if launcher_dict_config._target_ == get_path(
         BasicLauncher,
     ):
-        error_msg = (
-            "`hydra/launcher: basic` (the default launcher) is not supported. "
-            "Use `override hydra/launcher: local` or "
-            "`override hydra/launcher: slurm`."
-        )
-        raise TypeError(error_msg)
+        return BasicLauncherConf(**launcher_config_dict)
     error_msg = f"Unsupported launcher: {launcher_dict_config._target_}"
     raise TypeError(error_msg)

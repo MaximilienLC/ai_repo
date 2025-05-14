@@ -25,7 +25,7 @@ def get_project_name() -> str:
     return main_file_path.parent.name
 
 
-def get_absolute_project_path() -> Path:
+def get_absolute_project_path() -> str:
     main_file = sys.modules["__main__"].__file__
     main_file_path = Path(main_file).resolve()
     main_file_parent_path = main_file_path.parent
@@ -35,5 +35,4 @@ def get_absolute_project_path() -> Path:
             "``task`` directory."
         )
         raise RuntimeError(error_msg)
-
-    return main_file_path.resolve().stem
+    return str(main_file_parent_path)
