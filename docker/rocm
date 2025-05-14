@@ -1,5 +1,5 @@
 # ~ ROCm on Ubuntu ~ #
-FROM rocm/dev-ubuntu-24.04:6.3.3-complete
+FROM rocm/dev-ubuntu-22.04:6.3.3-complete
 # Prevents Python from creating __pycache__/ and .pyc/ folders in the project
 # folder
 ENV PYTHONPYCACHEPREFIX=/.cache/python/
