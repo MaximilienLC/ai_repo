@@ -1,0 +1,89 @@
+name: Workflows executed upon every commit following a pull request
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  docker-build:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout the GitHub repo
+        uses: actions/checkout@v4
+      - name: Build the tentative Docker image
+        run: docker build -t mleclei/ai_repo:cuda_test -f docker/cuda .
+  sphinx-build:
+    needs: docker-build
+    runs-on: self-hosted
+    steps:
+      - name: Checkout the GitHub repo
+        uses: actions/checkout@v4
+      - name: Build the documentation with Sphinx
+        run: >
+          docker run --rm -v ${PWD}:${PWD} -w ${PWD} mleclei/ai_repo:cuda_test
+          sphinx-build -b html ./docs/ ./docs/build/
+  mypy:
+    needs: docker-build
+    runs-on: self-hosted
+    steps:
+      - name: Checkout the GitHub repo
+        uses: actions/checkout@v4
+      - name: Static type checking with Mypy
+        run: >
+          docker run --rm -v ${PWD}:${PWD} -w ${PWD} mleclei/ai_repo:cuda_test
+          mypy --config-file=pyproject.toml common projects
+  pytest:
+    needs: docker-build
+    runs-on: self-hosted
+    steps:
+      - name: Checkout the GitHub repo
+        uses: actions/checkout@v4
+      - name: Unit testing with pytest
+        run: >
+          docker run --rm -v ${PWD}:${PWD} -w ${PWD} mleclei/ai_repo:cuda_test
+          pytest common projects
+  classify_mnist-mlp_cpu:
+    needs: docker-build
+    runs-on: self-hosted
+    steps:
+      - name: Checkout the GitHub repo
+        uses: actions/checkout@v4
+      - name: Create WANDB_KEY.txt file
+        run: echo ${{ secrets.WANDB_KEY }} > ${PWD}/WANDB_KEY.txt
+      - name: Runs project=classify_mnist task=mlp_cpu
+        run: >
+          docker run --privileged --gpus all --rm -e AI_REPO_PATH=${PWD}
+          -v ${PWD}:${PWD} -e PYTHONPATH=${PYTHONPATH}:${PWD}
+          -v /dev/shm:/dev/shm -w ${PWD} mleclei/ai_repo:cuda_test
+          python projects/classify_mnist/train.py task=mlp_cpu
+          logger.entity=maximilienlc
+  classify_mnist-mlp:
+    needs: docker-build
+    runs-on: self-hosted
+    steps:
+      - name: Checkout the GitHub repo
+        uses: actions/checkout@v4
+      - name: Create WANDB_KEY.txt file
+        run: echo ${{ secrets.WANDB_KEY }} > ${PWD}/WANDB_KEY.txt
+      - name: Runs project=classify_mnist task=mlp
+        run: >
+          docker run --privileged --gpus all --rm -e AI_REPO_PATH=${PWD}
+          -v ${PWD}:${PWD} -e PYTHONPATH=${PYTHONPATH}:${PWD}
+          -v /dev/shm:/dev/shm -w ${PWD} mleclei/ai_repo:cuda_test
+          python projects/classify_mnist/train.py task=mlp
+          logger.entity=maximilienlc
+  neuroevorl_control-acrobot:
+    needs: docker-build
+    runs-on: self-hosted
+    steps:
+      - name: Checkout the GitHub repo
+        uses: actions/checkout@v4
+      - name: Create WANDB_KEY.txt file
+        run: echo ${{ secrets.WANDB_KEY }} > ${PWD}/WANDB_KEY.txt
+      - name: Runs project=neuroevorl_control task=acrobot
+        run: >
+          docker run --privileged --gpus all --rm -e AI_REPO_PATH=${PWD}
+          -v ${PWD}:${PWD} -e PYTHONPATH=${PYTHONPATH}:${PWD}
+          -v /dev/shm:/dev/shm -w ${PWD} mleclei/ai_repo:cuda_test
+          python -m projects.ne_control_score task=acrobot
+          logger.entity=maximilienlc config.total_num_gens=3
