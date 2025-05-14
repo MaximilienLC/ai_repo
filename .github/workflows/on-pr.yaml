@@ -80,7 +80,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Create WANDB_KEY.txt file
         run: echo ${{ secrets.WANDB_KEY }} > ${PWD}/WANDB_KEY.txt
-      - name: Runs project=neuroevorl_control task=acrobot
+      - name: Runs project=ne_control_score task=acrobot
         run: >
           docker run --privileged --gpus all --rm -e AI_REPO_PATH=${PWD}
           -v ${PWD}:${PWD} -e PYTHONPATH=${PYTHONPATH}:${PWD}
