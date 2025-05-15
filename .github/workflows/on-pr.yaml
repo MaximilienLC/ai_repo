@@ -55,7 +55,7 @@ jobs:
           docker run --privileged --gpus all --rm -e AI_REPO_PATH=${PWD}
           -v ${PWD}:${PWD} -e PYTHONPATH=${PYTHONPATH}:${PWD}
           -v /dev/shm:/dev/shm -w ${PWD} mleclei/ai_repo:cuda_test
-          python3 -m projects/classify_mnist/train task=mlp_cpu
+          python3 -m projects.classify_mnist.train task=mlp_cpu
           logger.entity=maximilienlc
   classify_mnist-mlp:
     needs: docker-build
@@ -70,7 +70,7 @@ jobs:
           docker run --privileged --gpus all --rm -e AI_REPO_PATH=${PWD}
           -v ${PWD}:${PWD} -e PYTHONPATH=${PYTHONPATH}:${PWD}
           -v /dev/shm:/dev/shm -w ${PWD} mleclei/ai_repo:cuda_test
-          python3 -m projects/classify_mnist/train task=mlp
+          python3 -m projects.classify_mnist.train task=mlp
           logger.entity=maximilienlc
   ne_control_score-acrobot:
     needs: docker-build
