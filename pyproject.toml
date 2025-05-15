@@ -19,7 +19,7 @@ dependencies = [
     "wandb==0.19.11", # Logging
     """
     submitit@git+https://github.com/MaximilienLC/submitit@\
-    38eb24e82c9ca7be0fed55cb1f939263fdea4b68""", # Local & SLURM job launcher
+    b51967092af9a58fa548008f56a81beb4431d88a""", # Local & SLURM job launcher
     # Fork that launches `tasks_per_node` through `mpi` rather
     # than the original `submitit` method. For use in `ai_repo/fit/ne/`.
     """
