@@ -33,4 +33,4 @@ RUN ln -s /usr/bin/python /usr/bin/python
 ADD pyproject.toml /ai_repo/pyproject.toml
 # Install Python dependencies
 RUN pip install uv==0.7.3 --break-system-packages \
-    && uv pip install --preview --system --break-system-packages --no-cache-dir -e /ai_repo[cpu] --extra-index-url https://download.pytorch.org/whl/cpu --index-strategy unsafe-best-match
+    && uv pip install --break-system-packages --system --no-cache-dir -e /ai_repo[cpu] --extra-index-url https://download.pytorch.org/whl/cu128  --index-strategy unsafe-best-match

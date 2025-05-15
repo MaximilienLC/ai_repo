@@ -7,7 +7,7 @@ package = false
 
 [project]
 name = "ai_repo"
-requires-python = "==3.10"
+requires-python = "==3.12"
 authors = [{ name = "Maximilien Le Clei", email = "github.laborer138@passmail.net" }]
 description = "AI repository"
 version = "0.0.1"
