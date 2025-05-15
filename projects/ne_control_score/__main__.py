@@ -25,7 +25,7 @@ class TaskRunner(NeuroevolutionTaskRunner):
                 GymAgent,
                 config=generate_config(GymAgentConfig),
             ),
-            name="rl_control_nevo",
+            name="ne_control_score",
             group="agent",
         )
 
