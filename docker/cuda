@@ -1,7 +1,6 @@
 # ~ CUDA + cuDNN on Ubuntu ~ #
 FROM nvcr.io/nvidia/cuda:12.8.1-cudnn-devel-ubuntu24.04
-# Prevents Python from creating __pycache__/ and .pyc/ folders in the project
-# folder
+# Moves Python cache file creation to a different folder
 ENV PYTHONPYCACHEPREFIX=/.cache/python/
 # Fixes mpi4py wheel building
 ENV SETUPTOOLS_USE_DISTUTILS=local
@@ -28,8 +27,7 @@ RUN apt update && apt install -y \
     curl \
     # Clean up
     && rm -rf /var/lib/apt/lists/*
-RUN ln -s /usr/bin/python /usr/bin/python
-# Add the pyproject.toml and ai_repo folder to the container
+# Feed `pyproject.toml` to the build context
 ADD pyproject.toml /ai_repo/pyproject.toml
 # Install Python dependencies
 RUN pip install uv==0.7.3 --break-system-packages \

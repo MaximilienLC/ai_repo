@@ -10,7 +10,6 @@ Contents
 
    installation
    execution
-   contribution
 
 .. autosummary::
    :toctree: _autosummary

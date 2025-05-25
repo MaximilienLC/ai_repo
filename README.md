@@ -9,12 +9,12 @@ MaximilienLC/ai_repo/actions/workflows/on-push-with-image.yaml)
 [![code style: black](https://img.shields.io/badge/\
 code%20style-black-000000.svg)](https://github.com/psf/black)
 
-## Example usage
+## Examples
 
 🔢 MNIST classification with a MLP
 
 ```python
-python -m projects.classify_mnist task=mlp
+python -m projects.classify_mnist.train task=mlp
 ```
 
 🤸 Acrobot score optimization with neuroevolution
@@ -106,23 +106,38 @@ systems.
 #### 🔍 Overview
 
 A ``service`` refers to a Python package located at
-``common/.../SERVICE_NAME/``. Each ``service`` is meant to implement
-a given form of execution.
+``common/SERVICE_NAME/``. Each ``service`` is meant to sketch out a form of
+execution.
+
+#### 📂 Examples
+
+* [Optimization](
+https://github.com/MaximilienLC/ai_repo/tree/main/common/optim/)
+
+* [Inference](
+https://github.com/MaximilienLC/ai_repo/tree/main/common/infer)
+
+### Engine
+
+#### 🔍 Overview
+
+An ``engine`` refers to a Python package located at
+``common/SERVICE_NAME/INTERFACE_NAME``. Each ``engine`` is meant to
+drive a specific type of execution.
 
 #### 📂 Examples
 
 * [Deep Learning](
 https://github.com/MaximilienLC/ai_repo/tree/main/common/optim/dl)
 
-* [Neuroevolution](
-https://github.com/MaximilienLC/ai_repo/tree/main/common/optim/ne)
+* [Lightning Checkpoint Inference](
+https://github.com/MaximilienLC/ai_repo/tree/main/common/infer/lightning)
 
 ### Project
 
 #### 🔍 Overview
 
 A ``project`` refers to a Python package located at ``projects/PROJECT_NAME/``.
-Each ``project`` is meant to implement a specific use-case.
 
 #### 📂 Examples
 
@@ -153,62 +168,35 @@ https://github.com/MaximilienLC/ai_repo/tree/main/projects/classify_mnist/task/m
 A ``subtask`` is a sub-work unit of a ``task`` (ex: a model training run
 with a specific set of hyper-parameters).
 
-## High-level repository tree
+## Rough repository tree
 
 ```
 ai_repo/
 ├─ .github/                  <-- Config files for GitHub Actions (tests, containers, etc)
-├─ common/                   <-- Code common to various projects
-│  ├─ infer/                 <-- Contains code to run inference on the models
-│  ├─ optim/                 <-- Contains code to optimize models
-│  │  ├─ dl/                 <-- Deep Learning code
-│  │  │  ├─ datamodule/      <-- Lightning DataModules
-│  │  │  ├─ litmodule/       <-- Lightning Modules
-│  │  │  │  └─ nnmodule/     <-- PyTorch Modules
-│  │  │  ├─ utils/           <-- Deep Learning utilities
-│  │  │  ├─ config.py        <-- Deep Learning structured configs
-│  │  │  ├─ runner.py        <-- Deep Learning task runner
-│  │  │  ├─ store.py         <-- Deep Learning configs storing
-│  │  │  └─ train.py         <-- Deep Learning training function
-│  │  ├─ ne/                 <-- Neuroevolution code
-│  │  │  ├─ agent/           <-- Neuroevolution agents (encapsulate networks)
-│  │  │  ├─ net/             <-- Neuroevolution networks
-│  │  │  ├─ space/           <-- Neuroevolution spaces (where agents get evaluated)
-│  │  │  ├─ utils/           <-- Neuroevolution utilities
-│  │  │  ├─ config.py        <-- Neuroevolution structured configs
-│  │  │  ├─ evolve.py        <-- Neuroevolution evolution function
-│  │  │  └─ runner.py        <-- Neuroevolution task runner
-│  │  ├─ utils/              <-- Optimization utilities
-│  │  ├─ config.py           <-- Optimization structured configs
-│  │  ├─ runner.py           <-- Optimization task runner
-│  │  └─ store.py            <-- Optimization configs storing
-│  ├─ serve/                 <-- Contains the code to serve models
-│  ├─ test/                  <-- Contains code for more complex testing of models
-│  ├─ utils/                 <-- Overall utilities
-│  ├─ __init__.py            <-- Module set-up
-│  ├─ config.py              <-- Base structured configs
-│  ├─ runner.py              <-- Base task runner
-│  └─ store.py               <-- Base configs storing
-├─ docs/                     <-- Documentation files
-├─ projects/                 <-- Contains all existing projects
-│  │
-│  │                             ******************************************
-│  └─ my_new_dl_project/     <-- ******** Your new project folder *********
-│     ├─ task/               <-- *********** Your task folder *************
-│     │  └─ config.yaml      <-- ****** Your task configuration file ******
-│     ├─ __main__.py         <-- ************ Your entry-point ************
-│     ├─ datamodule.py       <-- ******* Your Lightning DataModule ********
-│     ├─ litmodule.py        <-- ********* Your Lightning Module **********
-│     └─ nnmodule.py         <-- ********** Your PyTorch Module ***********
-│                                ******************************************
-│
-├─ .devcontainer.json        <-- VSCode container development config
-├─ .gitignore                <-- Files to not track with Git/GitHub
-├─ .pre-commit-config.yaml   <-- Pre-"git commit" actions config (format, lint, etc)
-├─ .yamllint.yaml            <-- YAML files config
-├─ Dockerfile                <-- To build the Docker image
-├─ LICENSE                   <-- MIT License file
-├─ README.md                 <-- Repository description file
-├─ pyproject.toml            <-- Python code & dependencies config
-└─ renovate.json             <-- Renovate Bot config (keeps dependencies up-to-date)
+├─ common/                   <-- Code common to various `projects`
+│  ├─ infer/                 <-- Model inference
+│  │  └─ lightning/          <-- Inference from Lightning checkpoints
+│  └─ optim/                 <-- Model optimization
+│     ├─ dl/                 <-- Deep Learning
+│     │  ├─ datamodule/      <-- Lightning DataModules
+│     │  ├─ litmodule/       <-- Lightning Modules
+│     │  │  └─ nnmodule/     <-- PyTorch Modules
+│     │  └─ train.py
+│     └─ ne/                 <-- Neuroevolution
+│        ├─ agent/
+│        ├─ net/
+│        ├─ space/           <-- Where agents evolve
+│        └─ evolve.py
+├─ docs/                     <-- Documentation
+└─ projects/                 <-- Contains all existing projects
+   │
+   │                             ******************************************
+   └─ my_new_dl_project/     <-- ******** Your new project folder *********
+      ├─ task/               <-- *********** Your task folder *************
+      │  └─ config.yaml      <-- ****** Your task configuration file ******
+      ├─ __main__.py         <-- ************ Your entry-point ************
+      ├─ datamodule.py       <-- ******* Your Lightning DataModule ********
+      ├─ litmodule.py        <-- ********* Your Lightning Module **********
+      └─ nnmodule.py         <-- ********** Your PyTorch Module ***********
+                                 ******************************************
 ```

@@ -1,28 +1,5 @@
-On a Standard Linux machine
-===========================
-
-.. note::
-
-    Replace
-
-    .. code-block:: bash
-
-        docker run --privileged --gpus all
-
-    with
-
-    .. code-block:: bash
-
-        podman run --security-opt=label=disable --device=nvidia.com/gpu=all
-
-    if you are using Podman.
-
-    Make sure to remove the above flags if you are not using a GPU.
-
-.. note::
-    By default, the Podman containers are either built with the local timezone
-    or to the UTC. To change the timezone of the container, add ``--tz=local``
-    flag to the execution command above.
+With Docker
+===========
 
 Run a python script
 -------------------
