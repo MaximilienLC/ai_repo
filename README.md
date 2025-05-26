@@ -1,13 +1,14 @@
 # ai_repo
 
-[![format-lint](https://github.com/MaximilienLC/ai_repo/actions/workflows/\
-format-lint.yaml/badge.svg?event=push)](https://github.com/MaximilienLC/\
-ai_repo/actions/workflows/format-lint.yaml)
-[![on-push-with-image](https://github.com/MaximilienLC/ai_repo/actions/\
-workflows/on-push-with-image.yaml/badge.svg?event=push)](https://github.com/\
-MaximilienLC/ai_repo/actions/workflows/on-push-with-image.yaml)
-[![code style: black](https://img.shields.io/badge/\
-code%20style-black-000000.svg)](https://github.com/psf/black)
+[![format-lint](
+    https://github.com/MaximilienLC/ai_repo/actions/workflows/format-lint.yaml/badge.svg?event=push)](
+        https://github.com/MaximilienLC/ai_repo/actions/workflows/format-lint.yaml)
+[![on-push-with-image](
+    https://github.com/MaximilienLC/ai_repo/actions/workflows/on-push-with-image.yaml/badge.svg?event=push)](
+        https://github.com/MaximilienLC/ai_repo/actions/workflows/on-push-with-image.yaml)
+[![code style: black](
+    https://img.shields.io/badge/code%20style-black-000000.svg)](
+        https://github.com/psf/black)
 
 ## Examples
 
@@ -29,7 +30,7 @@ python projects/ne_control_score/main.py task=acrobot
 
 [📖 II. Overview](#ii-overview)
 
-[🌳 III. High-level repository tree](#high-level-repository-tree)
+[🌳 III. Rough repository tree](#rough-repository-tree)
 
 ## I. Introduction
 
@@ -122,8 +123,8 @@ https://github.com/MaximilienLC/ai_repo/tree/main/common/infer)
 #### 🔍 Overview
 
 An ``engine`` refers to a Python package located at
-``common/SERVICE_NAME/INTERFACE_NAME``. Each ``engine`` is meant to
-drive a specific type of execution.
+``common/SERVICE_NAME/ENGINE_NAME``. Each ``engine`` is meant to drive a
+specific type of execution.
 
 #### 📂 Examples
 
