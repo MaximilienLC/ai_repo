@@ -15,7 +15,7 @@ def store_wandb_logger_configs(
 ) -> None:
     """Stores `Hydra <https://hydra.cc>`_ ``logger`` group configs.
 
-    Config names: ``wandb``, ``wandb_simexp``.
+    Config names: ``wandb``.
 
     Args:
         store: See :paramref:`~.BaseTaskRunner.store_configs.store`.
@@ -33,9 +33,4 @@ def store_wandb_logger_configs(
         generate_config_partial(clb, **base_args),
         group="logger",
         name="wandb",
-    )
-    store(
-        generate_config_partial(clb, **base_args, entity="cneuroml"),
-        group="logger",
-        name="wandb_simexp",
     )

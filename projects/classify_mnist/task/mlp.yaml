@@ -6,15 +6,19 @@ defaults:
   - _self_
 hydra:
   launcher:
-    gpus_per_node: 1
     cpus_per_task: 4
+    gpus_per_node: 1
 config:
   device: gpu
 litmodule:
   nnmodule:
-    config:
-      dims: [784, 128, 10]
     activation_fn:
       _target_: torch.nn.ReLU
+    config:
+      dims: [784, 128, 10]
+  optimizer:
+    lr: 0.002
+logger:
+  entity: maximilienlc
 trainer:
   max_epochs: 3

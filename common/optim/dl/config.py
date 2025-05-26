@@ -50,7 +50,7 @@ class DeepLearningTaskConfig(
             {"litmodule/nnmodule": "mlp"},
             {"litmodule/scheduler": "constant"},
             {"litmodule/optimizer": "adamw"},
-            {"logger": "wandb_simexp"},
+            {"logger": "wandb"},
             "project",
             "task",
             {"task": None},
