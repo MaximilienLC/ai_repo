@@ -22,7 +22,7 @@ def get_task_name() -> str:
 def get_project_name() -> str:
     main_file = sys.modules["__main__"].__file__
     main_file_path = Path(main_file).resolve()
-    return main_file_path.parent.name
+    return str(main_file_path.parent.name)
 
 
 def get_absolute_project_path() -> str:

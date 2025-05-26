@@ -1,7 +1,10 @@
 from hydra_zen import ZenStore
 
 from common.optim.ne.runner import NeuroevolutionTaskRunner
-from common.utils.hydra_zen import generate_config
+from common.utils.hydra_zen import (
+    generate_config,
+    generate_config_no_signature,
+)
 
 from .agent import GymAgent, GymAgentConfig
 from .space import GymReinforcementSpace, GymReinforcementSpaceConfig
@@ -21,7 +24,7 @@ class TaskRunner(NeuroevolutionTaskRunner):
             group="space",
         )
         store(
-            generate_config(
+            generate_config_no_signature(
                 GymAgent,
                 config=generate_config(GymAgentConfig),
             ),
