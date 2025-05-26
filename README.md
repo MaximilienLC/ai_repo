@@ -4,8 +4,8 @@
     https://github.com/MaximilienLC/ai_repo/actions/workflows/format-lint.yaml/badge.svg?event=push)](
         https://github.com/MaximilienLC/ai_repo/actions/workflows/format-lint.yaml)
 [![on-push-with-image](
-    https://github.com/MaximilienLC/ai_repo/actions/workflows/on-push-with-image.yaml/badge.svg?event=push)](
-        https://github.com/MaximilienLC/ai_repo/actions/workflows/on-push-with-image.yaml)
+    https://github.com/MaximilienLC/ai_repo/actions/workflows/on-push.yaml/badge.svg?event=push)](
+        https://github.com/MaximilienLC/ai_repo/actions/workflows/on-push.yaml)
 [![code style: black](
     https://img.shields.io/badge/code%20style-black-000000.svg)](
         https://github.com/psf/black)
@@ -15,13 +15,13 @@
 🔢 MNIST classification with a MLP
 
 ```python
-python -m projects.classify_mnist.train task=mlp
+python projects/classify_mnist/train.py task=mlp
 ```
 
 🤸 Acrobot score optimization with neuroevolution
 
 ```python
-python projects/ne_control_score/main.py task=acrobot
+python -m projects.ne_control_score task=acrobot
 ```
 
 ## Table of Contents
