@@ -18,7 +18,7 @@ def login_wandb() -> None:
     else:
         error_msg = (
             "W&B key not found. You can retrieve your key from "
-            "`https://wandb.ai/settings` and store it in a file named "
+            "`https://wandb.ai/authorize` and store it in a file named "
             "`WANDB_KEY.txt` in the root directory of the project."
         )
         raise FileNotFoundError(error_msg)

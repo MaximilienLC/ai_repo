@@ -15,7 +15,7 @@ Run a python script
     docker run --privileged --gpus all --rm -e AI_REPO_PATH=${AI_REPO_PATH} \
                -e PYTHONPATH=${PYTHONPATH}:${AI_REPO_PATH} \
                -v ${AI_REPO_PATH}:${AI_REPO_PATH} -v /dev/shm:/dev/shm \
-               -w ${AI_REPO_PATH} mleclei/ai_repo:latest \
+               -w ${AI_REPO_PATH} mleclei/ai_repo:cpu \
                python -m project.classify_mnist task=mlp
 
 
