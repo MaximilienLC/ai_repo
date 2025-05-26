@@ -1,0 +1,8 @@
+mlp
+===
+
+.. automodule:: common.optim.dl.litmodule.nnmodule.mlp
+   :members:
+
+
+

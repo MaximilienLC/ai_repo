@@ -1,0 +1,20 @@
+﻿projects
+========
+
+.. automodule:: projects
+   :members:
+
+
+
+
+.. rubric:: Submodules
+
+.. autosummary::
+   :toctree:
+   :template: module.rst
+   :recursive:
+   
+      classify_mnist
+      ne_control_score
+
+

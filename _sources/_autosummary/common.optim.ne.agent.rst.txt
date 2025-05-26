@@ -1,0 +1,19 @@
+agent
+=====
+
+.. automodule:: common.optim.ne.agent
+   :members:
+
+
+
+
+.. rubric:: Submodules
+
+.. autosummary::
+   :toctree:
+   :template: module.rst
+   :recursive:
+   
+      base
+
+

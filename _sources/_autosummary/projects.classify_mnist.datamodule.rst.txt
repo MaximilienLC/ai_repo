@@ -1,0 +1,8 @@
+datamodule
+==========
+
+.. automodule:: projects.classify_mnist.datamodule
+   :members:
+
+
+

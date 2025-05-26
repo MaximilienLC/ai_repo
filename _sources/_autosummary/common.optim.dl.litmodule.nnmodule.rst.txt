@@ -1,0 +1,19 @@
+nnmodule
+========
+
+.. automodule:: common.optim.dl.litmodule.nnmodule
+   :members:
+
+
+
+
+.. rubric:: Submodules
+
+.. autosummary::
+   :toctree:
+   :template: module.rst
+   :recursive:
+   
+      mlp
+
+

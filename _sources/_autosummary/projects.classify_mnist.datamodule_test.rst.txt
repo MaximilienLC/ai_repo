@@ -1,0 +1,8 @@
+datamodule\_test
+================
+
+.. automodule:: projects.classify_mnist.datamodule_test
+   :members:
+
+
+

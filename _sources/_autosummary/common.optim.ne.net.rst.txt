@@ -1,0 +1,19 @@
+net
+===
+
+.. automodule:: common.optim.ne.net
+   :members:
+
+
+
+
+.. rubric:: Submodules
+
+.. autosummary::
+   :toctree:
+   :template: module.rst
+   :recursive:
+   
+      cpu
+
+

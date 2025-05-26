@@ -1,0 +1,8 @@
+initialize
+==========
+
+.. automodule:: common.optim.ne.utils.initialize
+   :members:
+
+
+

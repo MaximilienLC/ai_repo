@@ -1,0 +1,8 @@
+rnnfc
+=====
+
+.. automodule:: common.optim.ne.net.cpu.static.rnnfc
+   :members:
+
+
+

@@ -1,0 +1,23 @@
+classify\_mnist
+===============
+
+.. automodule:: projects.classify_mnist
+   :members:
+
+
+
+
+.. rubric:: Submodules
+
+.. autosummary::
+   :toctree:
+   :template: module.rst
+   :recursive:
+   
+      datamodule
+      datamodule_test
+      infer
+      litmodule
+      train
+
+

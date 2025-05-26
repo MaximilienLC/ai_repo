@@ -1,0 +1,19 @@
+datamodule
+==========
+
+.. automodule:: common.optim.dl.datamodule
+   :members:
+
+
+
+
+.. rubric:: Submodules
+
+.. autosummary::
+   :toctree:
+   :template: module.rst
+   :recursive:
+   
+      base
+
+
