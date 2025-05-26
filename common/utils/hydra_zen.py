@@ -7,19 +7,18 @@ from hydra_zen import make_custom_builds_fn
 from hydra_zen.wrapper import default_to_config
 from omegaconf import OmegaConf
 
-generate_config_no_signature = make_custom_builds_fn(  # type: ignore[var-annotated]
-    populate_full_signature=False,
-    hydra_convert="partial",
-)
-
 generate_config = make_custom_builds_fn(  # type: ignore[var-annotated]
     populate_full_signature=True,
     hydra_convert="partial",
 )
-
 generate_config_partial = make_custom_builds_fn(  # type: ignore[var-annotated]
     zen_partial=True,
     populate_full_signature=True,
+    hydra_convert="partial",
+)
+generate_config_partial_no_full_sig = make_custom_builds_fn(  # type: ignore[var-annotated]
+    zen_partial=True,
+    populate_full_signature=False,
     hydra_convert="partial",
 )
 

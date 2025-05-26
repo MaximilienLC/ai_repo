@@ -20,13 +20,13 @@ def get_task_name() -> str:
 
 
 def get_project_name() -> str:
-    main_file = sys.modules["__main__"].__file__
+    main_file = str(sys.modules["__main__"].__file__)
     main_file_path = Path(main_file).resolve()
     return str(main_file_path.parent.name)
 
 
 def get_absolute_project_path() -> str:
-    main_file = sys.modules["__main__"].__file__
+    main_file = str(sys.modules["__main__"].__file__)
     main_file_path = Path(main_file).resolve()
     main_file_parent_path = main_file_path.parent
     if not (main_file_parent_path / "task").exists():

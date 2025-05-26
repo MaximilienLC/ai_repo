@@ -16,5 +16,5 @@
     "enabled": true
   },
   "prConcurrentLimit": 1,
-  "ignoreDeps": ["nvcr.io/nvidia/cuda"]
+  "ignoreDeps": ["nvcr.io/nvidia/cuda", "torchrl"]
 }
