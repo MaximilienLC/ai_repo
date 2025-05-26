@@ -2,11 +2,11 @@ from typing import Any
 
 from hydra_zen import ZenStore
 
+from common.infer.runner import InferTaskRunner
 from common.optim.dl.litmodule import BaseLitModule
 
 from .config import LightningInferenceSubtaskConfig
 from .infer import infer
-from .runner import InferTaskRunner
 
 
 class LightningInferTaskRunner(InferTaskRunner):
@@ -27,7 +27,6 @@ class LightningInferTaskRunner(InferTaskRunner):
                 See :paramref:`~.OptimTaskRunner.store_configs.store`.
         """
         super().store_configs(store)
-        store_basic_nnmodule_config(store)  # noqa: F821
         store(LightningInferenceSubtaskConfig, name="config")
 
     @classmethod
