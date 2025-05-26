@@ -1,0 +1,13 @@
+**/_build/
+**/_autosummary/
+**/ai_repo.egg-info/
+**/data/
+**/.ipynb_checkpoints/
+**/.mypy_cache/
+**/*.pyc
+**/__pycache__/
+**/.pytest_cache/
+**/.ruff_cache/
+**/.vscode/
+WANDB_KEY.txt
+projects/haptic_pred/
