@@ -14,5 +14,3 @@ litmodule:
       dims: [784, 128, 10]
     activation_fn:
       _target_: torch.nn.ReLU
-trainer:
-  max_epochs: 3

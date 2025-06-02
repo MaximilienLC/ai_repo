@@ -1,5 +1,6 @@
 """:class:`.NeuroevolutionTaskRunner`."""
 
+from abc import ABC
 from collections.abc import Callable
 from functools import partial
 from typing import Any
@@ -19,7 +20,7 @@ from common.optim.runner import OptimTaskRunner
 from common.store import store_wandb_logger_configs
 
 
-class NeuroevolutionTaskRunner(OptimTaskRunner):
+class NeuroevolutionTaskRunner(OptimTaskRunner, ABC):
     """Neuroevolution ``task`` runner."""
 
     @classmethod
