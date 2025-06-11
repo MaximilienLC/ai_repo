@@ -58,7 +58,7 @@ class BaseLitModule(LightningModule, ABC):
 
     @final
     def initialize_wandb_objects(self: "BaseLitModule") -> None:
-        create_wandb_table = lambda iter_type: wandb.Table(  # type: ignore[no-untyped-call]  # noqa: E731
+        create_wandb_table = lambda iter_type: wandb.Table(  # noqa: E731
             columns=[
                 "data_idx",
                 iter_type,
@@ -133,7 +133,7 @@ class BaseLitModule(LightningModule, ABC):
             table = self.wandb_val_table
             it = self.curr_val_epoch
         for i, data_i in enumerate(data):
-            table.add_data(  # type: ignore[no-untyped-call]
+            table.add_data(
                 i,
                 it,
                 *[data_i[key] for key in self.config.wandb_column_names],
