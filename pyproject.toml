@@ -81,7 +81,7 @@ dependencies = [
     # DEVELOPMENT
     "black[jupyter]==25.1.0", # Python Formatter
     "ruff==0.11.13", # Python Linter
-    "doc8==1.1.2", # Documentation linter
+    "doc8==2.0.0", # Documentation linter
     "yamllint==1.37.1", # YAML linter
     "pre-commit==4.2.0", # Git commit hooks
     """
