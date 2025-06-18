@@ -87,7 +87,7 @@ dependencies = [
     """
     mypy@git+https://github.com/python/mypy@\
     a8ec8939ce5a8ba332ec428bec8c4b7ef8c42344""", # Static type checker
-    "pytest==8.4.0", # Testing framework
+    "pytest==8.4.1", # Testing framework
 ]
 
 [project.optional-dependencies]
