@@ -399,7 +399,7 @@ since this is NOT called on every device</p>
 </pre></div>
 </div>
 <p>In a distributed environment, <code class="docutils literal notranslate"><span class="pre">prepare_data</span></code> can be called in two ways
-(using <a class="reference external" href="https://lightning.ai/docs/pytorch/stable/common/lightning_module.html#prepare-data-per-node" title="(in PyTorch Lightning v2.5.1.post0)"><span class="xref std std-ref">prepare_data_per_node</span></a>)</p>
+(using <a class="reference external" href="https://lightning.ai/docs/pytorch/stable/common/lightning_module.html#prepare-data-per-node" title="(in PyTorch Lightning v2.5.2)"><span class="xref std std-ref">prepare_data_per_node</span></a>)</p>
 <ol class="arabic simple">
 <li><p>Once per node. This is the default and is only called on LOCAL_RANK=0.</p></li>
 <li><p>Once in total. Only called on GLOBAL_RANK=0.</p></li>
