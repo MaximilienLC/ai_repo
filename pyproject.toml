@@ -50,7 +50,7 @@ dependencies = [
     # OPTIONAL for ai_repo/fit/dl/
     "transformers==4.52.4", # Pre-trained models published on Hugging Face
     "diffusers==0.34.0", # Diffusion models published on Hugging Face
-    "timm==1.0.15", # Image models
+    "timm==1.0.16", # Image models
     "datasets==3.6.0", # Datasets published on Hugging Face
     "x-transformers==2.3.25", # Transformer utils
     """
