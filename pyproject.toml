@@ -40,7 +40,7 @@ dependencies = [
     "jaxtyping==0.3.2", # Torch tensor annotations
     "nptyping==2.5.0", # Numpy array annotations
     "einops==0.8.1", # Makes shape transformations more readable
-    "jupyterlab==4.4.3", # Jupyter notebook
+    "jupyterlab==4.4.4", # Jupyter notebook
     "jupyterlab-code-formatter==3.0.2", # Jupyter code formatter
     "ipywidgets==8.1.7", # Jupyter widgets
     "h5py==3.14.0", # HDF5 file format load/save
