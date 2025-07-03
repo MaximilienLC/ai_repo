@@ -16,7 +16,7 @@ dependencies = [
     "hydra-core==1.3.2", # Configuration management
     "hydra-zen==0.15.0", # Cleaner Hydra configs
     "beartype==0.21.0", # Dynamic type checking
-    "wandb==0.20.1", # Logging
+    "wandb==0.21.0", # Logging
     """
     submitit@git+https://github.com/MaximilienLC/submitit@\
     b51967092af9a58fa548008f56a81beb4431d88a""", # Local & SLURM job launcher
