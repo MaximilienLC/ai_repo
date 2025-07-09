@@ -44,7 +44,7 @@ dependencies = [
     "jupyterlab-code-formatter==3.0.2", # Jupyter code formatter
     "ipywidgets==8.1.7", # Jupyter widgets
     "h5py==3.14.0", # HDF5 file format load/save
-    "opencv-python==4.11.0.86", # Image processing
+    "opencv-python==4.12.0.88", # Image processing
     # MANDATORY for ai_repo/fit/dl/
     "lightning==2.5.2", # PyTorch wrapper to decrease boilerplate
     # OPTIONAL for ai_repo/fit/dl/
