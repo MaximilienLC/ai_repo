@@ -48,7 +48,7 @@ dependencies = [
     # MANDATORY for ai_repo/fit/dl/
     "lightning==2.5.2", # PyTorch wrapper to decrease boilerplate
     # OPTIONAL for ai_repo/fit/dl/
-    "transformers==4.53.1", # Pre-trained models published on Hugging Face
+    "transformers==4.53.2", # Pre-trained models published on Hugging Face
     "diffusers==0.34.0", # Diffusion models published on Hugging Face
     "timm==1.0.17", # Image models
     "datasets==4.0.0", # Datasets published on Hugging Face
