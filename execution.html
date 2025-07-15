@@ -371,8 +371,8 @@
 docker<span class="w"> </span>run<span class="w"> </span>--privileged<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>--rm<span class="w"> </span>-e<span class="w"> </span><span class="nv">AI_REPO_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">AI_REPO_PATH</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
 <span class="w">           </span>-e<span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="si">${</span><span class="nv">PYTHONPATH</span><span class="si">}</span>:<span class="si">${</span><span class="nv">AI_REPO_PATH</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
 <span class="w">           </span>-v<span class="w"> </span><span class="si">${</span><span class="nv">AI_REPO_PATH</span><span class="si">}</span>:<span class="si">${</span><span class="nv">AI_REPO_PATH</span><span class="si">}</span><span class="w"> </span>-v<span class="w"> </span>/dev/shm:/dev/shm<span class="w"> </span><span class="se">\</span>
-<span class="w">           </span>-w<span class="w"> </span><span class="si">${</span><span class="nv">AI_REPO_PATH</span><span class="si">}</span><span class="w"> </span>mleclei/ai_repo:latest<span class="w"> </span><span class="se">\</span>
-<span class="w">           </span>python<span class="w"> </span>-m<span class="w"> </span>project.classify_mnist<span class="w"> </span><span class="nv">task</span><span class="o">=</span>mlp
+<span class="w">           </span>-w<span class="w"> </span><span class="si">${</span><span class="nv">AI_REPO_PATH</span><span class="si">}</span><span class="w"> </span>mleclei/ai_repo:cuda<span class="w"> </span><span class="se">\</span>
+<span class="w">           </span>python<span class="w"> </span>-m<span class="w"> </span>projects.classify_mnist<span class="w"> </span><span class="nv">task</span><span class="o">=</span>mlp
 </pre></div>
 </div>
 </section>
@@ -384,7 +384,7 @@ module<span class="w"> </span>load<span class="w"> </span>apptainer<span class="
 <span class="w">    </span>apptainer<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--no-home<span class="w"> </span>-B<span class="w"> </span>/etc/passwd<span class="w"> </span>-B<span class="w"> </span>/etc/slurm/<span class="w"> </span>-B<span class="w"> </span>/opt/software/slurm<span class="w"> </span>-B<span class="w"> </span>/usr/lib64/libmunge.so.2<span class="w"> </span><span class="se">\</span>
 <span class="w">                   </span>-B<span class="w"> </span>/cvmfs/soft.computecanada.ca/easybuild/software/2020/Core/apptainer/1.1.8/bin/apptainer<span class="w"> </span><span class="se">\</span>
 <span class="w">                   </span>-B<span class="w"> </span>/var/run/munge/<span class="w"> </span>--env<span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/opt/software/slurm/lib64/slurm<span class="w">  </span>-B<span class="w"> </span><span class="nv">$AI_REPO_PATH</span><span class="w"> </span><span class="nv">$SCRATCH</span>/ai_repo.sif<span class="w"> </span><span class="se">\</span>
-<span class="w">                   </span>python<span class="w"> </span>-m<span class="w"> </span>project.classify_mnist<span class="w"> </span><span class="nv">task</span><span class="o">=</span>mlp_beluga
+<span class="w">                   </span>python<span class="w"> </span>-m<span class="w"> </span>projects.classify_mnist<span class="w"> </span><span class="nv">task</span><span class="o">=</span>mlp_beluga
 </pre></div>
 </div>
 </section>
