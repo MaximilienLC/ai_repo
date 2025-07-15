@@ -36,5 +36,5 @@ Run the lab.
     docker run --rm -e AI_REPO_PATH=${AI_REPO_PATH} \
                -e PYTHONPATH=${PYTHONPATH}:${AI_REPO_PATH} \
                -v ${AI_REPO_PATH}:${AI_REPO_PATH} \
-               -w ${AI_REPO_PATH} mleclei/ai_repo:latest \
+               -w ${AI_REPO_PATH} mleclei/ai_repo:cpu \
                jupyter-lab --allow-root --ip 0.0.0.0 --port 8888
