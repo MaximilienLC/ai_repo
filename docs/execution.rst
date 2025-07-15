@@ -12,7 +12,7 @@ Through Docker
                -e PYTHONPATH=${PYTHONPATH}:${AI_REPO_PATH} \
                -v ${AI_REPO_PATH}:${AI_REPO_PATH} -v /dev/shm:/dev/shm \
                -w ${AI_REPO_PATH} mleclei/ai_repo:latest \
-               python -m project.classify_mnist task=mlp
+               python -m projects.classify_mnist task=mlp
 
 Through Apptainer
 -----------------
@@ -25,4 +25,4 @@ Through Apptainer
         apptainer exec --no-home -B /etc/passwd -B /etc/slurm/ -B /opt/software/slurm -B /usr/lib64/libmunge.so.2 \
                        -B /cvmfs/soft.computecanada.ca/easybuild/software/2020/Core/apptainer/1.1.8/bin/apptainer \
                        -B /var/run/munge/ --env LD_LIBRARY_PATH=/opt/software/slurm/lib64/slurm  -B $AI_REPO_PATH $SCRATCH/ai_repo.sif \
-                       python -m project.classify_mnist task=mlp_beluga
+                       python -m projects.classify_mnist task=mlp_beluga

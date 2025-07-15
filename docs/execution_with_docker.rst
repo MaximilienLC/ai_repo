@@ -16,7 +16,7 @@ Run a python script
                -e PYTHONPATH=${PYTHONPATH}:${AI_REPO_PATH} \
                -v ${AI_REPO_PATH}:${AI_REPO_PATH} -v /dev/shm:/dev/shm \
                -w ${AI_REPO_PATH} mleclei/ai_repo:cpu \
-               python -m project.classify_mnist task=mlp
+               python -m projects.classify_mnist task=mlp
 
 
 Run a notebook

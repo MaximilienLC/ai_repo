@@ -21,4 +21,4 @@ Run a python script
         apptainer exec --no-home -B /etc/passwd -B /etc/slurm/ -B /opt/software/slurm -B /usr/lib64/libmunge.so.2 \
                        -B /cvmfs/soft.computecanada.ca/easybuild/software/2020/Core/apptainer/1.1.8/bin/apptainer \
                        -B /var/run/munge/ --env LD_LIBRARY_PATH=/opt/software/slurm/lib64/slurm  -B $AI_REPO_PATH $SCRATCH/ai_repo.sif \
-                       python -m project.classify_mnist task=mlp_beluga
+                       python -m projects.classify_mnist task=mlp_beluga
