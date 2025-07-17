@@ -67,7 +67,7 @@ dependencies = [
     "librosa==0.11.0",
     # MANDATORY for ai_repo/fitting/neuroevolution/
     "mpi4py==4.1.0", # Inter-process communication
-    "torchrl==0.9.1", # For reinforcement/imitation Learning tasks
+    "torchrl==0.9.2", # For reinforcement/imitation Learning tasks
     "gymnasium[mujoco]==1.2.0", # RL/IL environments
     "ordered-set==4.1.0", # Sets w/ deterministic order
     # MANDATORY for docs/
