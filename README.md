@@ -177,17 +177,20 @@ ai_repo/
 ├─ common/                   <-- Code common to various `projects`
 │  ├─ infer/                 <-- Model inference
 │  │  └─ lightning/          <-- Inference from Lightning checkpoints
-│  └─ optim/                 <-- Model optimization
-│     ├─ dl/                 <-- Deep Learning
-│     │  ├─ datamodule/      <-- Lightning DataModules
-│     │  ├─ litmodule/       <-- Lightning Modules
-│     │  │  └─ nnmodule/     <-- PyTorch Modules
-│     │  └─ train.py
-│     └─ ne/                 <-- Neuroevolution
-│        ├─ agent/
-│        ├─ net/
-│        ├─ space/           <-- Where agents evolve
-│        └─ evolve.py
+│  ├─ optim/                 <-- Model optimization
+│  │  ├─ dl/                 <-- Deep Learning
+│  │  │  ├─ datamodule/      <-- Lightning DataModules
+│  │  │  ├─ litmodule/       <-- Lightning Modules
+│  │  │  │  └─ nnmodule/     <-- PyTorch Modules
+│  │  │  └─ train.py         <-- Training logic
+│  │  └─ ne/                 <-- Neuroevolution
+│  │     ├─ agent/           <-- Population agent definition
+│  │     ├─ net/             <-- Neural networks to embed in agents
+│  │     ├─ space/           <-- Wrapper around TorchRL environments where agents evolve
+│  │     └─ fit.py           <-- Evolution and testing logic
+│  ├─ serve/                 <-- Model serving
+│  └─ test/                  <-- Model testing
+│     └─ torchrl/            <-- Model testing in TorchRL environments
 ├─ docs/                     <-- Documentation
 └─ projects/                 <-- Contains all existing projects
    │

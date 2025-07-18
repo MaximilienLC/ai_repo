@@ -1,5 +1,3 @@
-"""Test."""
-
 from hydra_zen import ZenStore
 
 from common.runner import BaseTaskRunner

@@ -1,3 +1,4 @@
+from abc import abstractmethod
 from functools import partial
 from typing import Any
 
@@ -7,7 +8,6 @@ from common.infer.runner import InferTaskRunner
 from common.optim.dl.litmodule import BaseLitModule
 
 from .config import LightningInferenceSubtaskConfig
-from .infer import infer
 
 
 class LightningInferTaskRunner(InferTaskRunner):
@@ -21,10 +21,9 @@ class LightningInferTaskRunner(InferTaskRunner):
         store(LightningInferenceSubtaskConfig, name="config")
 
     @classmethod
+    @abstractmethod
     def run_subtask(
         cls: type["LightningInferTaskRunner"],
         litmodule: partial[BaseLitModule],
         config: LightningInferenceSubtaskConfig,
-    ) -> Any:  # noqa: ANN401
-        """Runs the ``subtask``."""
-        return infer(litmodule, config)
+    ) -> Any: ...  # noqa: ANN401

@@ -63,17 +63,11 @@ def fit(
     Note that this function and all of its sub-functions will be called
     by ``num_nodes * tasks_per_node`` MPI processes/tasks. These two
     variables are set in the Hydra launcher configuration.
-
-    Args:
-        space
-        agent
-        logger: See :func:`~.utils.wandb.setup_wandb`.
-        config
     """
-    if not isinstance(config, NeuroevolutionSubtaskTestConfig):
-        evolve(space=space, agent=agent, logger=logger, config=config)
-    else:
+    if isinstance(config, NeuroevolutionSubtaskTestConfig):
         test(space=space, config=config)
+    else:
+        evolve(space=space, agent=agent, logger=logger, config=config)
 
 
 def evolve(
