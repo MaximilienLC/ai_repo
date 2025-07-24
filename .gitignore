@@ -2,6 +2,7 @@
 **/_autosummary/
 **/ai_repo.egg-info/
 **/data/
+**/.claude/
 **/.ipynb_checkpoints/
 **/.mypy_cache/
 **/*.pyc
@@ -11,3 +12,4 @@
 **/.vscode/
 WANDB_KEY.txt
 projects/haptic_pred/
+CLAUDE.md
